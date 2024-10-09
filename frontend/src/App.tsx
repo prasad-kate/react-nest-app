@@ -1,7 +1,10 @@
 import "./App.css";
+import { useGetData } from "./service/sample.service";
 
 function App() {
-  return <>hello world</>;
+  const { data } = useGetData();
+
+  return <div>{data}</div>;
 }
 
 export default App;
