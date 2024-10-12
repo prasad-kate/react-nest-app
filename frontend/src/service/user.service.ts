@@ -54,3 +54,23 @@ export const useUpdateUser = ({ userId }: { userId: string }) => {
     updateUser: mutate,
   };
 };
+
+export const useDeleteUser = () => {
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: (userId: string) => api.delete(`users/${userId}`),
+    onSuccess: () => {
+      alert("User deleted successfully");
+      queryClient.invalidateQueries({
+        queryKey: ["users"],
+      });
+    },
+    onError: () => {
+      alert("Something went wrong. Please try again");
+    },
+  });
+
+  return {
+    deleteUser: mutate,
+  };
+};

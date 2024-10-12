@@ -1,4 +1,5 @@
 import CreateUser from "./components/CreateUser";
+import DeleteUser from "./components/DeleteUser";
 import UpdateUser from "./components/UpdateUser";
 import Users from "./components/Users";
 
@@ -8,6 +9,7 @@ function Home() {
       <Users />
       <CreateUser />
       <UpdateUser />
+      <DeleteUser />
     </>
   );
 }
