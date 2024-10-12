@@ -37,6 +37,12 @@ function UpdateUser() {
         email,
         password,
       });
+
+      setUpdateUserData({
+        updateUserName: "",
+        updateUserEmail: "",
+        updateUserPassword: "",
+      });
     }
   };
 
