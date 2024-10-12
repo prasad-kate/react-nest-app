@@ -1,10 +1,12 @@
 import "./App.css";
-import { useGetData } from "./service/sample.service";
+import Home from "./pages/Home";
 
 function App() {
-  const { data } = useGetData();
-
-  return <div>{data}</div>;
+  return (
+    <div className="main-container">
+      <Home />
+    </div>
+  );
 }
 
 export default App;

@@ -15,7 +15,7 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.userModel.find().exec(); // This returns a Promise<User[]>
+    return this.userModel.find({}, { password: 0 }).exec(); // This returns a Promise<User[]>
   }
 
   async findOne(id: string): Promise<User> {
@@ -30,6 +30,8 @@ export class UsersService {
     const updatedUser = await this.userModel
       .findByIdAndUpdate(id, updateUserDto, { new: true })
       .exec();
+
+    // Check if the user was found and updated
     if (!updatedUser) {
       throw new NotFoundException(`User with ID ${id} not found`); // Handle not found
     }
